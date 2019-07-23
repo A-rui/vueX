@@ -103,12 +103,38 @@ export default {
   },
   methods: {
     add () {
-      this.setUserCount(3)
+      // this.setUserCount(3)
       // this.$store.commit('increment')
       // this.$store.commit('subtract', {style: 3})
       // this.$store.dispatch('increment', {style: 3})
       // this.subtract({style: 3})
       // console.log(this.$store.dispatch('actionB'))
+
+      // 抓了a,b,c,d4名犯罪嫌疑人.其中有一名是小偷，审讯中：
+      //   a说我不是小偷
+      //   b说c是小偷
+      //   c说小偷肯定是d
+      //   d说c胡说！
+      // 其中有3个人说的是实话，一个人说的是假话，编程推断谁是小偷
+      // let s = ['a', 'b', 'c', 'd']
+      // for (let i = 0; i < 4; i++) {
+      //   let index = 0
+      //   if (i !== 0) {
+      //     index += 1
+      //   }
+      //   if (i === 2) {
+      //     index += 1
+      //   }
+      //   if (i === 3) {
+      //     index += 1
+      //   }
+      //   if (i !== 3) {
+      //     index += 1
+      //   }
+      //   if (index === 3) {
+      //     console.log(s[i])
+      //   }
+      // }
     },
     // ...mapMutations([ 'subtract' ])
     ...mapActions([ 'setUserCount' ])
