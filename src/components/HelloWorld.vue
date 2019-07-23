@@ -1,7 +1,15 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <!-- <h1>{{ msg }}{{$store.state.count}}</h1> -->
+    <!-- <h1>{{$store.state.count}}</h1> -->
+    <h2>{{count}}</h2>
+    <h2>{{userInfoCount}}</h2>
+    <!-- <h2>{{count}}</h2>
+    <h1>${{doneTodos}}</h1>
+    <h2>{{$store.getters.countstatus}}</h2>
+    <h2>{{a.name}}</h2>
+    <h2>{{b}}</h2> -->
+    <h2 @click="add(1,{style: 3})">Essential Links</h2>
     <ul>
       <li>
         <a
@@ -84,12 +92,30 @@
 </template>
 
 <script>
+// import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods: {
+    add () {
+      this.setUserCount(3)
+      // this.$store.commit('increment')
+      // this.$store.commit('subtract', {style: 3})
+      // this.$store.dispatch('increment', {style: 3})
+      // this.subtract({style: 3})
+      // console.log(this.$store.dispatch('actionB'))
+    },
+    // ...mapMutations([ 'subtract' ])
+    ...mapActions([ 'setUserCount' ])
+  },
+  computed: {
+    ...mapState([ 'count' ]),
+    ...mapGetters([ 'userInfoCount' ])
   }
 }
 </script>
